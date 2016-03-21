@@ -16,7 +16,7 @@ let app = express()
 let port = process.env.PORT || 3365
 let env = process.env.NODE_ENV || 'development'
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGOLAB_URI || process.env.MONGO_URL)
 
 app.use(bodyParser.json())
 app.use(cors())
