@@ -1,0 +1,79 @@
+@import "../../node_modules/normalize.css/normalize.css";
+
+$green: #2ecc71;
+$red: #e74c3c;
+
+body {
+  font-family: 'Bitter', serif;
+  margin-top: 60px;
+}
+
+.logo {
+  font-weight: 400;
+  font-size: 78pt;
+  color: $green;
+  margin-bottom: 0;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.row {
+  width: 100%;
+  lost-utility: clearfix;
+  padding: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+form {
+  .form-group {
+    padding: 10px;
+
+    input {
+      border: 1px solid #e3e3e3;
+      padding: 10px;
+    }
+
+    input.has-error {
+      border: 1px solid $red;
+    }
+  }
+
+  .error {
+    color: $red;
+  }
+}
+
+.success {
+  color: $green;
+}
+
+.btn {
+  padding: 10px;
+}
+
+.btn-group {
+  padding: 10px;
+}
+
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.new-memory {
+  border: 1px solid #e3e3e3;
+  padding: 20px;
+  resize: none;
+  width: 100%;
+  font-size: 30pt;
+}
