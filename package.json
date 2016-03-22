@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "webpack --config webpack-prod.config.js --progress --colors",
     "start": "node server.js",
-    "test": "eslint -f unix ."
+    "pretest": "eslint -f unix .",
+    "test": ""
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
   "dependencies": {
     "bcrypt": "^0.8.5",
     "body-parser": "^1.15.0",
+    "browserify-cipher": "^1.0.0",
     "classnames": "^2.2.3",
     "compression": "^1.6.1",
     "connect-mongo": "^1.1.0",

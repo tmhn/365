@@ -10,6 +10,7 @@ class AuthService {
       .end((err, res) => {
         if (err) return callback(err, false)
         window.localStorage.token = res.body.token
+        window.localStorage.password = password
         callback(null, true)
       })
   }

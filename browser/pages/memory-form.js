@@ -3,6 +3,7 @@ import request from 'superagent'
 import ReactMixin from 'react-mixin'
 import LinkedStateMixin from 'react-addons-linked-state-mixin'
 import AuthService from '../services/Auth'
+import CryptoService from '../services/Crypto'
 
 class NewMemoryForm extends Component {
   constructor (props) {
@@ -16,9 +17,11 @@ class NewMemoryForm extends Component {
   }
 
   _handleSaveClick () {
+    let text = CryptoService.encrypt(this.state.text)
+
     request.post('/api/memory')
       .set('Authorization', 'Bearer ' + AuthService.getAuthToken())
-      .send({ text: this.state.text })
+      .send({ text })
       .end((err, res) => {
         if (err) return console.log(err)
 
