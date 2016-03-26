@@ -1,6 +1,8 @@
 'use strict'
 
 import request from 'superagent'
+import decode from 'jwt-decode'
+import { browserHistory } from 'react-router'
 
 class AuthService {
 
@@ -17,6 +19,7 @@ class AuthService {
 
   logout () {
     window.localStorage.removeItem('token')
+    browserHistory.push('/')
   }
 
   getAuthToken () {
@@ -24,7 +27,14 @@ class AuthService {
   }
 
   isAuthed () {
-    return !!window.localStorage.token
+    let token = window.localStorage.token
+    let expired
+
+    if (token) {
+      expired = Math.floor(Date.now() / 1000) >= decode(token).exp
+    }
+
+    return (!!token) && !expired
   }
 
 }
